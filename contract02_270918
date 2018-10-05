@@ -1,0 +1,75 @@
+pragma solidity ^0.4.18;
+
+contract Heredero {
+    
+  
+    
+    uint256 estado;
+    
+    address public owner = msg.sender;
+     
+     constructor () public {
+         
+          estado=1;
+     }
+  
+  
+     
+      function getEstado() public view returns(uint256) {
+        return estado;
+    }
+    
+    
+    
+      function getEstadoS() public view returns(string) {
+       if(estado==1){
+           return 'Esta Vivo';
+       } else {
+           return 'Cobrar la herencia';
+       }
+    }
+    
+     
+    
+  /*
+    function setMessage(string newMessage) public {
+        message = newMessage;
+    }*/
+    
+    function setStado(uint256 newMessage) public {
+        estado = newMessage;
+    }
+    
+   
+    
+      function getBalance(address _owner) constant returns (uint256) {
+        return _owner.balance;
+    }
+    
+    
+        function sendWeis(address _receiver, uint256 _amount) returns (bool) {
+
+        _receiver.transfer(_amount);
+        return true;
+
+    }
+    function PagarHerencia() public payable  returns(string){
+        
+         estado = getEstado();
+        
+        if ( estado == 0){
+            
+            
+            
+             // require(msg.value ==1 , 'no es suficiente dinero');
+             
+        }
+        else {
+            return 'No hay Herencia';
+        }
+        
+      
+    }
+     
+    
+    
